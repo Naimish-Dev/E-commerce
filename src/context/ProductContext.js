@@ -51,10 +51,8 @@ const ProductProvider = ({ children }) => {
             const resSingleData = await axios.get(singleproducturl);
             const data =await resSingleData.data;
             dispatch({ type: "SingleProduct", payload: data})
-
         } catch (e) {
             dispatch({ type: "SingleProduct-Error" })
-
         }
 
     }
