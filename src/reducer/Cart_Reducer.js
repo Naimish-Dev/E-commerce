@@ -135,7 +135,6 @@ if(action.type==="Cart_Amount_Items"){
   return{
     ...state,
     cartTotal: Updated_Total, cartItems: Updated_Total_Items
-
   }
 }
   return state

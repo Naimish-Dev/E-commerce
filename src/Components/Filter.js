@@ -6,7 +6,7 @@ import PriceProduct from '../Helper/PriceProduct';
 
 import { Button } from '../styles/Button';
 const Filter = () => {
-  const { filter: { text, category, company, color, maxPrice, price, minPrice }, searchProductValue, all_products, cleareFilterhendler } = useFilterContext()
+  const { filter: { text, color, maxPrice, price, minPrice }, searchProductValue, all_products, cleareFilterhendler } = useFilterContext()
 
   const Filtercategory = (data, property) => {
     let uniqueFilterValue = data.map((val) => {

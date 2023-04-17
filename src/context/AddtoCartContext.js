@@ -3,18 +3,20 @@ import { createContext, useContext, useReducer } from 'react'
 import reducer from '../reducer/Cart_Reducer';
 
 const cardContext = createContext();
+
 const GetLocatStorageCartItems = () => {
     const remainingCartItems = localStorage.getItem("CartItems")
-
-    if (remainingCartItems === []) {
-        return [];
+    if (remainingCartItems === [] || remainingCartItems === null) {
+      return [];
     } else {
-        return JSON.parse(remainingCartItems);
+      return JSON.parse(remainingCartItems);
     }
 }
+console.log(GetLocatStorageCartItems());
+console.log("render");
 
 const initialstate = ({
-    cartProducts: GetLocatStorageCartItems() ,
+    cartProducts: GetLocatStorageCartItems() || [] ,
     cartTotal: "",
     cartItems: "",
     shipping_fee: 500,
@@ -37,7 +39,6 @@ const AddtoCartContext = ({ children }) => {
         dispatch({ type: "Clear_Cart_Item", })
     }
     const IncrimentCartItems = (id) => {
-        console.log(id);
         dispatch({ type: "Incriment_Cart_Item", payload : id})
     }
     const DecrimentCartItems = (id) => {
@@ -45,11 +46,15 @@ const AddtoCartContext = ({ children }) => {
     }
 
     useEffect(() => {
+                localStorage.setItem(
+                  "CartItems",
+                  JSON.stringify(state.cartProducts)
+                );
+
         dispatch({type:"Cart_Total_Items"})
         dispatch({ type:"Cat_Total"})
-        dispatch({ type:"Cart_Amount_Items"})
+      dispatch({ type:"Cart_Amount_Items"})
 
-        localStorage.setItem("CartItems", JSON.stringify(state.cartProducts))
     }, [state.cartProducts])
 
     return <cardContext.Provider value={{ ...state, addtocart, RemoveCartItems, ClearCartItems, IncrimentCartItems, DecrimentCartItems }} >{children}</cardContext.Provider>
