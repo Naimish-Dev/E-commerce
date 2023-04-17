@@ -44,8 +44,7 @@ const Cart_Reducer = (state, action) => {
   if (action.type === "Remove_Cart_Item") {
 
     let RemainCartItems = state.cartProducts.filter((val) => val.id !== action.payload);
-    console.log(action.payload);
-    console.log(RemainCartItems);
+    
     return {
       ...state,
       cartProducts: RemainCartItems
@@ -61,7 +60,6 @@ const Cart_Reducer = (state, action) => {
 
   if (action.type === "Incriment_Cart_Item") {
     let id = action.payload
-    console.log(id)
 
     const UpadateedItemAmount = state.cartProducts.map((val) => {
       if (val.id === id) {
@@ -126,6 +124,7 @@ const Cart_Reducer = (state, action) => {
   //     cartTotal: UpdatedCartTotal
   //   }
   // }
+  
 if(action.type==="Cart_Amount_Items"){
   let{Updated_Total,Updated_Total_Items}=state.cartProducts.reduce((accu,val)=>{ 
     accu.Updated_Total_Items += val.amount;

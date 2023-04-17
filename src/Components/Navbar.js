@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./Nav";
 const Navbar=()=>{
-    return <Wraper>
-<div className="align_navbar">
+    return (
+      <Wraper>
+        <div className="align_navbar">
+          <NavLink to="/">
+            <img src="images/logo.png" alt="logo" className="logo" />
+          </NavLink>
 
-<NavLink to="/">
-    <img src="./images/logo.png"  alt="logo" className="logo"/>
-</NavLink>
-
-    <Nav/>
-</div>
-    </Wraper>
+          <Nav />
+        </div>
+      </Wraper>
+    );
 
 
 

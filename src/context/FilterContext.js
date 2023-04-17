@@ -64,6 +64,7 @@ dispatch({type:"ProductSort_Chang"})
     }
 
     return <FilterContext.Provider value={{ ...state, setListView, setGrideView, sortProductHendler, searchProductValue, cleareFilterhendler }} >
+        
             {children}
             </FilterContext.Provider>
 }

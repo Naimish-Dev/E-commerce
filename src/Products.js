@@ -35,11 +35,12 @@ padding:10rem 8rem ;
 }
 
 .filter{
+  position:sticky;
     margin-top:1rem;  
     padding:1rem;
     width:25% ;
     background-color:${({theme})=>theme.colors.bg} ;
-
+height:100%
 }
 .main-product-sort{
   width:75% ;

@@ -7,9 +7,9 @@ const Cart = () => {
   const { cartTotal, shipping_fee, cartProducts, ClearCartItems } = useCardContext();
 
 
-  if (cartProducts.length <= 0){
-    return <div className="Empty_cart"><button> <NavLink to="/products" > Buy Something</NavLink></button> </div>
-  }
+  // if (cartProducts.length <= 0){
+  //   return <div className="Empty_cart"><button> <NavLink to="/products" > Buy Something</NavLink></button> </div>
+  // }
   return (<Wrapper>
     <h1>Cart</h1>
     <div className="main_card">
@@ -23,7 +23,7 @@ const Cart = () => {
       <div className="Product_body">
 
         {
-          cartProducts.map((val) => {
+          cartProducts?.map((val) => {
             return <CartItems key={val.id}  {...val} />
           })
         }

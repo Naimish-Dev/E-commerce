@@ -14,7 +14,7 @@ const GetLocatStorageCartItems = () => {
 }
 
 const initialstate = ({
-    cartProducts: GetLocatStorageCartItems(),
+    cartProducts: GetLocatStorageCartItems() ,
     cartTotal: "",
     cartItems: "",
     shipping_fee: 500,
@@ -45,8 +45,8 @@ const AddtoCartContext = ({ children }) => {
     }
 
     useEffect(() => {
-        // dispatch({type:"Cart_Total_Items"})
-        // dispatch({ type:"Cat_Total"})
+        dispatch({type:"Cart_Total_Items"})
+        dispatch({ type:"Cat_Total"})
         dispatch({ type:"Cart_Amount_Items"})
 
         localStorage.setItem("CartItems", JSON.stringify(state.cartProducts))
