@@ -5,11 +5,6 @@ import { useCardContext } from "./context/AddtoCartContext";
 import PriceProduct from "./Helper/PriceProduct"
 const Cart = () => {
   const { cartTotal, shipping_fee, cartProducts, ClearCartItems } = useCardContext();
-
-
-  // if (cartProducts.length <= 0){
-  //   return <div className="Empty_cart"><button> <NavLink to="/products" > Buy Something</NavLink></button> </div>
-  // }
   return (<Wrapper>
     <h1>Cart</h1>
     <div className="main_card">
